@@ -1,9 +1,9 @@
 id: com.kalbareader.Kalba
-
 runtime: org.gnome.Platform
-runtime-version: "46"
+runtime-version: '50'
 sdk: org.gnome.Sdk
-
+rename-desktop-file: kalba.desktop
+rename-icon: kalba
 command: kalba
 finish-args:
   - --socket=wayland
@@ -27,9 +27,9 @@ modules:
     build-commands:
       - bsdtar -Oxf Kalba.deb 'data.tar.gz' | bsdtar -xf -
       - install -Dm755 usr/bin/kalba /app/bin/kalba
-      - desktop-file-edit --add-category Languages --add-category Education --set-icon=com.kalbareader.Kalba usr/share/applications/kalba.desktop
-      - install -Dm644 usr/share/applications/kalba.desktop /app/share/applications/com.kalbareader.Kalba.desktop
-      - install -Dm644 usr/share/icons/hicolor/128x128/apps/kalba.png /app/share/icons/hicolor/128x128/apps/com.kalbareader.Kalba.png
-      - install -Dm644 usr/share/icons/hicolor/32x32/apps/kalba.png /app/share/icons/hicolor/32x32/apps/com.kalbareader.Kalba.png
-      - install -Dm644 usr/share/icons/hicolor/256x256@2/apps/kalba.png /app/share/icons/hicolor/256x256@2/apps/com.kalbareader.Kalba.png
-      - install -Dm644 usr/share/metainfo/com.kalbareader.Kalba.metainfo.xml /app/share/metainfo/com.kalbareader.Kalba.metainfo.xml
+      - desktop-file-edit --add-category Languages --add-category Education usr/share/applications/kalba.desktop
+      - install -Dm644 usr/share/applications/kalba.desktop -t /app/share/applications/
+      - install -Dm644 usr/share/icons/hicolor/128x128/apps/kalba.png -t /app/share/icons/hicolor/128x128/apps/
+      - install -Dm644 usr/share/icons/hicolor/32x32/apps/kalba.png -t /app/share/icons/hicolor/32x32/apps/
+      - install -Dm644 usr/share/icons/hicolor/256x256@2/apps/kalba.png -t /app/share/icons/hicolor/256x256@2/apps/
+      - install -Dm644 usr/share/metainfo/com.kalbareader.Kalba.metainfo.xml -t /app/share/metainfo/
